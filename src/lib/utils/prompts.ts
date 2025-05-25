@@ -1,4 +1,5 @@
 import { marked } from "marked";
+import { PROMPT_URL } from '../constants';
 
 export interface Prompt {
   act: string;
@@ -111,7 +112,7 @@ export const parseContributorsFromReadme = (text: string): Map<string, string> =
  */
 export const fetchPrompts = async (): Promise<Prompt[]> => {
   const [csvResponse, contributorMap] = await Promise.all([
-    fetch('https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/prompts.csv'),
+    fetch(PROMPT_URL),
     fetch('https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/README.md')
       .then(res => res.text())
       .then(parseContributorsFromReadme)
