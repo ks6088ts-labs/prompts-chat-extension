@@ -61,3 +61,5 @@ export const AI_MODELS = [
 ] as AIModel[];
 
 export type AIModelId = typeof AI_MODELS[number]['id'];
+
+export const PROMPT_URL = 'https://raw.githubusercontent.com/ks6088ts-labs/prompts-chat-extension/refs/heads/main/prompts.csv'
